@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BillManagerWPF.Services.Interfaces
 {
@@ -10,6 +6,7 @@ namespace BillManagerWPF.Services.Interfaces
     {
         bool Register(Users user);
         bool Login(Users user);
+        bool EditUser(Users user);
         IEnumerable<Users> GetAll();
         int GetUserIdByName(string username);
     }

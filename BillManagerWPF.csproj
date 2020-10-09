@@ -75,6 +75,9 @@
     <Compile Include="Information.cs">
       <DependentUpon>BillManagerDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\Implementations\BillsService.cs" />
+    <Compile Include="Services\Implementations\InfoService.cs" />
+    <Compile Include="Services\Implementations\UsersService.cs" />
     <Compile Include="Services\Interfaces\IBillsService.cs" />
     <Compile Include="Services\Interfaces\IInfoService.cs" />
     <Compile Include="Services\Interfaces\IUsersService.cs" />
@@ -153,8 +156,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Implementations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
