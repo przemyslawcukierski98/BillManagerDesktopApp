@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BillManagerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="April" Type="float" />
+          <Property Name="August" Type="float" />
+          <Property Name="December" Type="float" />
+          <Property Name="February" Type="float" />
+          <Property Name="January" Type="float" />
+          <Property Name="July" Type="float" />
+          <Property Name="June" Type="float" />
+          <Property Name="March" Type="float" />
+          <Property Name="May" Type="float" />
+          <Property Name="BillName" Type="varchar" MaxLength="100" />
+          <Property Name="November" Type="float" />
+          <Property Name="October" Type="float" />
+          <Property Name="September" Type="float" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="BillsYear" Type="float" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="100" />
+          <Property Name="InformationName" Type="varchar" MaxLength="100" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Surname" Type="varchar" MaxLength="100" />
+          <Property Name="IsPaid" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Bill__UserId__267ABA7A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Informati__UserI__29572725">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Information" Type="Self.Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BillManagerDBModelStoreContainer">
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Bill__UserId__267ABA7A" Association="Self.FK__Bill__UserId__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Informati__UserI__29572725" Association="Self.FK__Informati__UserI__29572725">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BillManagerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="April" Type="Double" />
+          <Property Name="August" Type="Double" />
+          <Property Name="December" Type="Double" />
+          <Property Name="February" Type="Double" />
+          <Property Name="January" Type="Double" />
+          <Property Name="July" Type="Double" />
+          <Property Name="June" Type="Double" />
+          <Property Name="March" Type="Double" />
+          <Property Name="May" Type="Double" />
+          <Property Name="BillName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="November" Type="Double" />
+          <Property Name="October" Type="Double" />
+          <Property Name="September" Type="Double" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="BillsYear" Type="Double" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Bill__UserId__267ABA7A" FromRole="Bill" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InformationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Informati__UserI__29572725" FromRole="Information" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__Bill__UserId__267ABA7A" FromRole="Users" ToRole="Bill" />
+          <NavigationProperty Name="Information" Relationship="Self.FK__Informati__UserI__29572725" FromRole="Users" ToRole="Information" />
+        </EntityType>
+        <Association Name="FK__Bill__UserId__267ABA7A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Informati__UserI__29572725">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Information" Type="Self.Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BillManagerDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bill" EntityType="Self.Bill" />
+          <EntitySet Name="Information" EntityType="Self.Information" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Bill__UserId__267ABA7A" Association="Self.FK__Bill__UserId__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Informati__UserI__29572725" Association="Self.FK__Informati__UserI__29572725">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BillManagerDBModelStoreContainer" CdmEntityContainer="BillManagerDBEntities">
+          <EntitySetMapping Name="Bill">
+            <EntityTypeMapping TypeName="BillManagerDBModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="April" ColumnName="April" />
+                <ScalarProperty Name="August" ColumnName="August" />
+                <ScalarProperty Name="December" ColumnName="December" />
+                <ScalarProperty Name="February" ColumnName="February" />
+                <ScalarProperty Name="January" ColumnName="January" />
+                <ScalarProperty Name="July" ColumnName="July" />
+                <ScalarProperty Name="June" ColumnName="June" />
+                <ScalarProperty Name="March" ColumnName="March" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="BillName" ColumnName="BillName" />
+                <ScalarProperty Name="November" ColumnName="November" />
+                <ScalarProperty Name="October" ColumnName="October" />
+                <ScalarProperty Name="September" ColumnName="September" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BillsYear" ColumnName="BillsYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Information">
+            <EntityTypeMapping TypeName="BillManagerDBModel.Information">
+              <MappingFragment StoreEntitySet="Information">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="InformationName" ColumnName="InformationName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BillManagerDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
