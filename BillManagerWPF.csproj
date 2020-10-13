@@ -87,6 +87,9 @@
     <Compile Include="Information.cs">
       <DependentUpon>BillManagerDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Implementations\BillsService.cs" />
     <Compile Include="Services\Implementations\InfoService.cs" />
     <Compile Include="Services\Implementations\UsersService.cs" />
@@ -96,6 +99,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>BillManagerDB.tt</DependentUpon>
     </Compile>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
