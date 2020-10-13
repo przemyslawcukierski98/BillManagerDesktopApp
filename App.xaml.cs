@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BillManagerWPF.Services.Implementations;
+using BillManagerWPF.Services.Interfaces;
 using System.Windows;
+using Unity;
 
 namespace BillManagerWPF
 {
-    /// <summary>
-    /// Logika interakcji dla klasy App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            IUnityContainer unityContainer = new UnityContainer();
+            unityContainer.RegisterType<IBillsService, BillsService>();
+
+            unityContainer.RegisterType<IInfoService, InfoService>();
+            unityContainer.RegisterType<IUsersService, UsersService>();
+        }
     }
 }
