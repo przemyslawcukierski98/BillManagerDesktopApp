@@ -7,20 +7,20 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
     <Grid>
-        <Label Content="Zarejestruj się" HorizontalAlignment="Left" Margin="94,53,0,0" FontFamily="Arial Black" FontSize="28px" VerticalAlignment="Top" Height="50" Width="263"/>
-        <Label Content="Zaloguj się" HorizontalAlignment="Left" Margin="491,53,0,0" FontFamily="Arial Black" FontSize="28px" VerticalAlignment="Top" Height="50" Width="181"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="147,145,0,0" TextWrapping="Wrap" Text="Login użytkownika..." VerticalAlignment="Top" Width="181"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="147,194,0,0" TextWrapping="Wrap" Text="Hasło użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="94,145,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
-        <Label Content="Hasło:" HorizontalAlignment="Left" Margin="94,194,0,0" VerticalAlignment="Top" Width="48" Height="30" RenderTransformOrigin="0.583,2.867"/>
-        <Button Content="Zarejestruj " HorizontalAlignment="Left" Margin="147,250,0,0" VerticalAlignment="Top" Width="97" Height="34"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="541,145,0,0" TextWrapping="Wrap" Text="Login użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="541,198,0,0" TextWrapping="Wrap" Text="Hasło użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="541,250,0,0" TextWrapping="Wrap" Text="Numer telefonu użytkownika..." VerticalAlignment="Top" Width="181"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="480,145,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
-        <Label Content="Hasło:" HorizontalAlignment="Left" Margin="480,198,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
-        <Label Content="Numer telefonu:" HorizontalAlignment="Left" Margin="428,250,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="541,304,0,0" VerticalAlignment="Top" Width="97" Height="34"/>
+        <Label x:Name="registerLabel" Content="Zarejestruj się" HorizontalAlignment="Left" Margin="94,53,0,0" FontFamily="Arial Black" FontSize="28px" VerticalAlignment="Top" Height="50" Width="263"/>
+        <Label x:Name="loginLabel" Content="Zaloguj się" HorizontalAlignment="Left" Margin="491,53,0,0" FontFamily="Arial Black" FontSize="28px" VerticalAlignment="Top" Height="50" Width="181"/>
+        <TextBox x:Name="loginLoginInput" HorizontalAlignment="Left" Height="30" Margin="147,145,0,0" TextWrapping="Wrap" Text="Login użytkownika..." VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="passwordLoginInput" HorizontalAlignment="Left" Height="30" Margin="147,194,0,0" TextWrapping="Wrap" Text="Hasło użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged"/>
+        <Label x:Name="loginLoginLabel" Content="Login:" HorizontalAlignment="Left" Margin="94,145,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
+        <Label x:Name="passwordLoginLabel" Content="Hasło:" HorizontalAlignment="Left" Margin="94,194,0,0" VerticalAlignment="Top" Width="48" Height="30" RenderTransformOrigin="0.583,2.867"/>
+        <Button x:Name="registerButton" Content="Zarejestruj " HorizontalAlignment="Left" Margin="147,250,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="registerButton_Click"/>
+        <TextBox x:Name="loginRegisterInput" HorizontalAlignment="Left" Height="30" Margin="541,145,0,0" TextWrapping="Wrap" Text="Login użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="passwordRegisterInput" HorizontalAlignment="Left" Height="30" Margin="541,198,0,0" TextWrapping="Wrap" Text="Hasło użytkownika..." VerticalAlignment="Top" Width="181" TextChanged="TextBox_TextChanged_2"/>
+        <TextBox x:Name="phoneNumberRegisterInput" HorizontalAlignment="Left" Height="30" Margin="541,250,0,0" TextWrapping="Wrap" Text="Numer telefonu użytkownika..." VerticalAlignment="Top" Width="181"/>
+        <Label x:Name="loginRegisterLabel" Content="Login:" HorizontalAlignment="Left" Margin="480,145,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
+        <Label x:Name="passwordRegisterLabel" Content="Hasło:" HorizontalAlignment="Left" Margin="480,198,0,0" VerticalAlignment="Top" Width="48" Height="30"/>
+        <Label x:Name="phoneNumberRegisterLabel" Content="Numer telefonu:" HorizontalAlignment="Left" Margin="428,250,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button x:Name="loginButton" Content="Zaloguj" HorizontalAlignment="Left" Margin="541,304,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="loginButton_Click"/>
 
     </Grid>
 </Window>

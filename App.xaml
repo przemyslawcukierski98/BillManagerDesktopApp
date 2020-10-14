@@ -1,9 +1,7 @@
 ﻿<Application x:Class="BillManagerWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:BillManagerWPF"
-             StartupUri="Login.xaml">
+             xmlns:local="clr-namespace:BillManagerWPF">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

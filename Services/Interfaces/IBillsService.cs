@@ -2,7 +2,7 @@
 
 namespace BillManagerWPF.Services.Interfaces
 {
-    interface IBillsService
+    public interface IBillsService
     {
         IEnumerable<Bill> GetBillsForUser(string userName);
         bool Add(Bill bill);

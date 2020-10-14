@@ -2,7 +2,7 @@
 
 namespace BillManagerWPF.Services.Interfaces
 {
-    interface IUsersService
+    public interface IUsersService
     {
         bool Register(Users user);
         bool Login(Users user);

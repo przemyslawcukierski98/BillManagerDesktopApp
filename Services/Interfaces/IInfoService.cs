@@ -2,7 +2,7 @@
 
 namespace BillManagerWPF.Services.Interfaces
 {
-    interface IInfoService
+    public interface IInfoService
     {
         IEnumerable<Information> GetAllForUser(string username);
         bool AddInformation(Information information);
