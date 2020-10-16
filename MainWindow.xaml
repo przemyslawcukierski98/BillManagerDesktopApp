@@ -14,7 +14,7 @@
         <Button x:Name="authorButton" Content="O autorze" HorizontalAlignment="Left" Margin="392,88,0,0" VerticalAlignment="Top" Width="114"/>
         <Button x:Name="addBill" Content="Dodaj rachunek" HorizontalAlignment="Left" Margin="511,88,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click"/>
         <Button x:Name="addInfoButton" Content="Dodaj informację" HorizontalAlignment="Left" Margin="643,88,0,0" VerticalAlignment="Top" Width="130"/>
-        <DataGrid x:Name="appDataGrid" HorizontalAlignment="Left" Height="239" Margin="10,171,0,0" VerticalAlignment="Top" Width="774" SelectionChanged="appDataGrid_SelectionChanged"/>
+        <DataGrid x:Name="appDataGrid" HorizontalAlignment="Left" Height="239" Margin="10,171,0,0" VerticalAlignment="Top" Width="774" SelectionChanged="appDataGrid_SelectionChanged" PreviewMouseRightButtonUp="appDataGrid_MouseRightButtonUp"/>
         <Label x:Name="welcomeLabel" Content="" HorizontalAlignment="Left" Margin="125,126,0,0" VerticalAlignment="Top" Width="550"/>
 
     </Grid>
