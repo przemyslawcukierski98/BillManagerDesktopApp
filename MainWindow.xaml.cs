@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
 using Unity;
 
 namespace BillManagerWPF
@@ -169,6 +172,31 @@ namespace BillManagerWPF
             appDataGrid.Visibility = Visibility.Hidden;
             addInfoButton.Visibility = Visibility.Visible;
             welcomeLabel.Content = infoService.GetInformationStringByUser(Settings.Default.Username);
+        }
+
+        private void appDataGrid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DependencyObject dependencyObject = (DependencyObject)e.OriginalSource;
+
+            while((dependencyObject!=null) && !(dependencyObject is DataGridCell) && !(dependencyObject is DataGridColumnHeader))
+            {
+                dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+            }
+            if(dependencyObject == null)
+            {
+                return;
+            }
+
+            if(dependencyObject is DataGridCell)
+            {
+                while((dependencyObject!=null) && !(dependencyObject is DataGridRow))
+                {
+                    dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+                }
+
+                DataGridRow dataGridRow = dependencyObject as DataGridRow;
+                dataGridRow.ContextMenu = contextMenu;
+            }
         }
         private void appDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
