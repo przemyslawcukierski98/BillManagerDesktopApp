@@ -23,8 +23,50 @@ namespace BillManagerWPF
         List<Bill> billsList = new List<Bill>();
         Bill updateBill;
         ContextMenu contextMenu = null;
-        TextBox januaryTextBox, februaryTextBox, marchTextBox, aprilTextBox, mayTextBox,
+        TextBox textFN, textLN, januaryTextBox, februaryTextBox, marchTextBox, aprilTextBox, mayTextBox,
                 juneTextBox, julyTextBox, augustTextBox, septemberTextBox, octoberTextBox, novemberTextBox, decemberTextBox, nameTextBox;
+
+        private void addInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            contextMenu = new ContextMenu();
+            DependencyObject dependency = (DependencyObject)e.OriginalSource;
+
+            textId = new TextBlock();
+            textId.Text = "Informacja: ";
+            contextMenu.Items.Add(textId);
+
+            textFN = new TextBox();
+            textFN.Text = "Informacja: ";
+            contextMenu.Items.Add(textFN);
+
+            textId = new TextBlock();
+            textId.Text = "Treść: ";
+            contextMenu.Items.Add(textId);
+
+            textLN = new TextBox();
+            textLN.Text = "Treść: ";
+            contextMenu.Items.Add(textLN);
+
+            Button saveButton_2 = new Button();
+            saveButton_2.Content = "Zapisz";
+            contextMenu.Items.Add(saveButton_2);
+            contextMenu.IsOpen = true;
+            saveButton_2.Click += new RoutedEventHandler(saveButton_2_click);
+        }
+
+        void saveButton_2_click(object sender, RoutedEventArgs e)
+        {
+            Information information = new Information()
+            {
+                Content = textFN.Text,
+                InformationName = textLN.Text,
+                UserId = usersService.GetUserIdByName(Settings.Default.Username)
+            };
+
+            infoService.AddInformation(information);
+            contextMenu.IsOpen = false;
+        }
+
         TextBlock textId;
 
         [InjectionConstructor]
